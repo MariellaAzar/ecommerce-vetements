@@ -1,61 +1,67 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Success.css';
 
 function Success() {
+  const navigate = useNavigate();
   const [rating, setRating] = useState(0);
+  const [hovered, setHovered] = useState(null);
   const [comment, setComment] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ici tu pourrais envoyer les données à une API ou localStorage
     setSubmitted(true);
   };
 
-  if (submitted) {
-    return (
-      <div style={{
-        backgroundColor: "#fff6f6",
-        padding: "40px",
-        margin: "80px auto",
-        maxWidth: "500px",
-        borderRadius: "16px",
-        textAlign: "center",
-        fontFamily: "Montserrat, sans-serif"
-      }}>
-        <h2>Thank you for your feedback!</h2>
-        <p>We appreciate you helping us improve 💖</p>
-      </div>
-    );
-  }
-
   return (
-    <div style={{
-      padding: 30,
-      maxWidth: 400,
-      margin: 'auto',
-      fontFamily: 'Montserrat, sans-serif'
-    }}>
-      <h2>Thank you for your purchase!</h2>
-      <p>Please rate your experience:</p>
-      <form onSubmit={handleSubmit}>
-        <label>Rating (1 to 5):</label><br/>
-        <select value={rating} onChange={e => setRating(Number(e.target.value))} required>
-          <option value={0}>Select rating</option>
-          {[1,2,3,4,5].map(n => <option key={n} value={n}>{n}</option>)}
-        </select><br/><br/>
+    <div className="success-container">
+      {!submitted ? (
+        <>
+          <h2>🛍️ Thank you for your purchase!</h2>
+          <p>Your order is being processed with care 💖</p>
+          <hr style={{ margin: '30px 0' }} />
+          <h3>💬 Help us get better!</h3>
 
-        <label>Comments:</label><br/>
-        <textarea
-          rows={4}
-          value={comment}
-          onChange={e => setComment(e.target.value)}
-          placeholder="Your feedback"
-        /><br/><br/>
+          <form onSubmit={handleSubmit}>
+            <label>🌟 How would you rate your experience?</label>
+            <div className="star-rating">
+              {[...Array(10)].map((_, index) => {
+                const starValue = index + 1;
+                return (
+                  <span
+                    key={starValue}
+                    className={`star ${starValue <= (hovered || rating) ? 'filled' : ''}`}
+                    onClick={() => setRating(starValue)}
+                    onMouseEnter={() => setHovered(starValue)}
+                    onMouseLeave={() => setHovered(null)}
+                  >
+                    ★
+                  </span>
+                );
+              })}
+            </div>
 
-        <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#EF4F4F', color: 'white', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
-          Submit Feedback
-        </button>
-      </form>
+            <label>💌 Any thoughts or suggestions?</label>
+            <textarea
+              rows="4"
+              placeholder="Share something sweet or spicy..."
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+            />
+
+            <button type="submit">Send Feedback</button>
+          </form>
+        </>
+      ) : (
+        <>
+          <h2>💖 Thank you so much for your feedback!</h2>
+          <p>You help us shine brighter ✨</p>
+          <button onClick={() => navigate('/shop')} className="back-btn">
+            Back to Shop
+          </button>
+        </>
+      )}
     </div>
   );
 }

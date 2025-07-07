@@ -1,57 +1,59 @@
-/* src/pages/Survey.css */
 .survey-container {
-  max-width: 600px;
-  margin: 60px auto;
-  padding: 40px;
+  padding: 30px;
+  max-width: 500px;
+  margin: 80px auto;
   background-color: #fff6f6;
   border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   font-family: 'Montserrat', sans-serif;
 }
 
-.survey-container h2 {
-  text-align: center;
-  color: #EF4F4F;
-  margin-bottom: 20px;
-}
-
-form {
+.survey-container form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
-label {
-  display: flex;
-  flex-direction: column;
-  font-weight: 500;
+.survey-container label {
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 
-select, textarea {
-  margin-top: 8px;
-  padding: 12px;
-  border-radius: 12px;
+.survey-container textarea,
+.survey-container select {
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 8px;
   border: 1px solid #ccc;
-  font-family: inherit;
-  font-size: 14px;
 }
 
-button {
+
+.survey-container button {
+  margin-top: 20px;
   background-color: #EF4F4F;
   color: white;
   border: none;
-  padding: 12px;
-  border-radius: 30px;
-  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background-color: #D43C3C;
 }
 
 .thanks-message {
   text-align: center;
-  color: #333;
+  margin-top: 30px;
+}
+
+.star-rating {
+  display: flex;
+  gap: 6px;
+  margin: 12px 0 24px;
+}
+
+.star {
+  font-size: 24px;
+  cursor: pointer;
+  color: #ddd;
+  transition: color 0.2s;
+}
+
+.star.filled {
+  color: #EF4F4F;
 }

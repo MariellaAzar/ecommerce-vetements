@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { StoreContext } from '../context/StoreContext';
+import { useNavigate } from 'react-router-dom';
 import './Cart.css';
 
 function Cart() {
   const { cart, removeFromCart, clearCart } = useContext(StoreContext);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
-  const [paymentDone, setPaymentDone] = useState(false);
   const [form, setForm] = useState({
     name: '',
     address: '',
@@ -14,36 +14,26 @@ function Cart() {
     cvv: ''
   });
 
+  const navigate = useNavigate();
+
   const totalPrice = cart.reduce((acc, p) => {
     const price = p.onSale && p.salePrice ? p.salePrice : p.price;
     return acc + price * p.quantity;
   }, 0);
 
-  if (cart.length === 0 && !paymentDone) {
-    return <p className="empty-cart-msg">Your cart is empty.</p>;
-  }
-
-  if (paymentDone) {
-    return (
-      <div className="payment-success">
-        <h2>Thank you for your purchase! 🎉</h2>
-        <p>Your order has been received and is being processed.</p>
-        <button onClick={() => window.location.reload()}>Back to Shop</button>
-      </div>
-    );
-  }
-
   const handleInputChange = (e) => {
-    setForm({...form, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleCheckout = (e) => {
     e.preventDefault();
-    // Ici tu peux ajouter validation formulaire + appel API paiement si réel
-    alert(`Paiement simulé validé. Merci ${form.name} !`);
-    setPaymentDone(true);
     clearCart();
+    navigate('/success');
   };
+
+  if (cart.length === 0 && !isCheckingOut) {
+    return <p className="empty-cart-msg">Your cart is empty.</p>;
+  }
 
   return (
     <div className="cart-container">

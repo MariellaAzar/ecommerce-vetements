@@ -1,10 +1,9 @@
 [
     {
     "id": "1",
-    "name": "Chic Heels",
-    "images": ["/assets/heels1.jpg", "/assets/heels2.jpg", "/assets/heels3.jpg"],
-    "price": 89.99,
-    "salePrice": 59.99,
+    "name": "Pink Colourful High Heels Boots",
+    "images": ["/assets/shoe2.PNG"],
+    "price": 49.99,
     "onSale": true,
     "category": "shoes",
     "subcategory": "heels",
@@ -12,37 +11,53 @@
     "description": "Shine all night 💫",
     "reviews": [
         { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
-        { "author": "Maya", "rating": 4, "comment": "I love the sparkle ✨" }
+        { "author": "Maya", "rating": 4, "comment": "I lovee!" }
     ]
     },
         {
     "id": "2",
     "name": "Cute Yellow Flower Skirt",
     "images": ["/assets/cuteyellowskirt1.PNG", "/assets/cuteyellowskirt2.PNG", "/assets/cuteyellowskirt3.PNG"],
-    "price": 89.99,
-    "salePrice": 59.99,
+    "price": 20.99,
+    "salePrice": 3.99,
     "onSale": true,
     "category": "skirt",
-    "sizes": ["36", "37", "38"],
-    "description": "Shine all night 💫",
+    "sizes": ["M", "L", "XL"],
+    "description": "Slay all day 💫",
     "reviews": [
-        { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
-        { "author": "Maya", "rating": 4, "comment": "I love the sparkle ✨" }
+        { "author": "Sarah", "rating": 5, "comment": "Gorgeous!" },
+        { "author": "Lea", "rating": 4, "comment": "I love it, but order a size up!" }
+    ]
+    },
+            {
+    "id": "3",
+    "name": "Cute Yellow Flower Skirt",
+    "images": ["/assets/cuteyellowskirt1.PNG", "/assets/cuteyellowskirt2.PNG", "/assets/cuteyellowskirt3.PNG"],
+    "price": 20.99,
+    "salePrice": 3.99,
+    "onSale": true,
+    "category": "skirt",
+    "sizes": ["M", "L", "XL"],
+    "description": "Slay all day 💫",
+    "reviews": [
+        { "author": "Maria", "rating": 1, "comment": "Material is so cheap... I feel betrayed" },
+        { "author": "Clara", "rating": 2, "comment": "I hate it! Waste of moneyz. Only good thing is... I dont know, I am just trying to be positive, so I will give it 2 stars" },
+        { "author": "Maria", "rating": 1, "comment": "If I could give it 0 stars, I would." }
     ]
     },
     {
-    "id": "3",
-    "name": "Colorful Picasso Fashion Dress",
-    "images": ["/assets/model1.PNG"],
-    "price": 89.99,
-    "salePrice": 59.99,
+    "id": "4",
+    "name": "Patchwork Print Raw Edge Jeans",
+    "images": ["/assets/cheappants.PNG, cheappants2.PNG"],
+    "price": 120.99,
+    "salePrice": 12.99,
     "onSale": true,
     "category": "dress",
     "sizes": ["M", "L", "XL"],
-    "description": "Shine all night 💫",
+    "description": "Patch? Work? Only patch, no work please.",
     "reviews": [
-        { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
-        { "author": "Maya", "rating": 4, "comment": "I love the sparkle ✨" }
+        { "author": "Julia", "rating": 5, "comment": "Perfect fit and gorgeous!" },
+        { "author": "Maya", "rating": 4, "comment": "I love the colours :D" }
     ]
     }
 

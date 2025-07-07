@@ -1,7 +1,11 @@
 import React from 'react';
 import './FilterSidebar.css';
 
-function FilterSidebar({ filters, onChange }) {
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function FilterSidebar({ filters, onChange, categories = [], subcategories = [] }) {
   return (
     <div className="filter-sidebar">
       <h3>Filters</h3>
@@ -15,26 +19,36 @@ function FilterSidebar({ filters, onChange }) {
       />
 
       <label>Category</label>
-      <select onChange={(e) => onChange({ category: e.target.value })}>
+      <select
+        value={filters.category}
+        onChange={(e) => onChange({ category: e.target.value })}
+      >
         <option value="">All</option>
-        <option value="dresses">Dresses</option>
-        <option value="accessories">Accessories</option>
-        <option value="shoes">Shoes</option>
-        <option value="business">Business</option>
+        {categories.map((cat) => (
+          <option key={cat} value={cat}>
+            {capitalize(cat)}
+          </option>
+        ))}
       </select>
 
       <label>Subcategory</label>
-      <select onChange={(e) => onChange({ subcategory: e.target.value })}>
+      <select
+        value={filters.subcategory}
+        onChange={(e) => onChange({ subcategory: e.target.value })}
+      >
         <option value="">All</option>
-        <option value="summer">Summer</option>
-        <option value="prom">Prom</option>
-        <option value="sneakers">Sneakers</option>
-        <option value="highheel">High Heel</option>
-        <option value="blazer">Blazer</option>
+        {subcategories.map((subcat) => (
+          <option key={subcat} value={subcat}>
+            {capitalize(subcat)}
+          </option>
+        ))}
       </select>
 
       <label>Size</label>
-      <select onChange={(e) => onChange({ size: e.target.value })}>
+      <select
+        value={filters.size}
+        onChange={(e) => onChange({ size: e.target.value })}
+      >
         <option value="">All</option>
         <option value="XS">XS</option>
         <option value="S">S</option>

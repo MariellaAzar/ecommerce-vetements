@@ -13,10 +13,31 @@ function Shop({ searchQueryGlobal }) {
     search: ''
   });
 
-  // Sync avec la Navbar
+  const [allCategories, setAllCategories] = useState([]);
+  const [allSubcategories, setAllSubcategories] = useState([]);
+
+  // Sync search from Navbar
   useEffect(() => {
     setFilters((prev) => ({ ...prev, search: searchQueryGlobal }));
   }, [searchQueryGlobal]);
+
+  // Extract unique categories & subcategories from products data dynamically
+  useEffect(() => {
+    const categoriesSet = new Set();
+    const subcategoriesSet = new Set();
+
+    productsData.forEach((product) => {
+      if (product.category) {
+        categoriesSet.add(product.category.toLowerCase());
+      }
+      if (product.subcategory) {
+        subcategoriesSet.add(product.subcategory.toLowerCase());
+      }
+    });
+
+    setAllCategories(Array.from(categoriesSet));
+    setAllSubcategories(Array.from(subcategoriesSet));
+  }, []);
 
   const handleFilterChange = (newFilters) => {
     setFilters({ ...filters, ...newFilters });
@@ -26,9 +47,9 @@ function Shop({ searchQueryGlobal }) {
     const { category, subcategory, size, sale, search } = filters;
 
     return (
-      (!category || product.category === category) &&
-      (!subcategory || product.subcategory === subcategory) &&
-      (!size || product.sizes.includes(size)) &&
+      (!category || (product.category?.toLowerCase() === category)) &&
+      (!subcategory || (product.subcategory?.toLowerCase() === subcategory)) &&
+      (!size || (product.sizes?.includes(size))) &&
       (!sale || product.onSale === true) &&
       (!search ||
         product.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -38,7 +59,12 @@ function Shop({ searchQueryGlobal }) {
 
   return (
     <div className="shop-page">
-      <FilterSidebar filters={filters} onChange={handleFilterChange} />
+      <FilterSidebar
+        filters={filters}
+        onChange={handleFilterChange}
+        categories={allCategories}
+        subcategories={allSubcategories}
+      />
       <div className="product-grid">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (

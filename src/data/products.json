@@ -5,8 +5,8 @@
     "images": ["/assets/shoe2.PNG"],
     "price": 49.99,
     "onSale": true,
-    "category": "shoes",
-    "subcategory": "heels",
+    "category": "Shoes",
+    "subcategory": "High Heel",
     "sizes": ["36", "37", "38"],
     "description": "Shine all night 💫",
     "reviews": [
@@ -19,7 +19,7 @@
     "name": "Cute Yellow Flower Skirt",
     "images": ["/assets/cuteyellowskirt1.PNG", "/assets/cuteyellowskirt2.PNG", "/assets/cuteyellowskirt3.PNG"],
     "price": 20.99,
-    "salePrice": 3.99,
+    "salePrice": 14.99,
     "onSale": true,
     "category": "skirt",
     "sizes": ["M", "L", "XL"],
@@ -31,14 +31,14 @@
     },
             {
     "id": "3",
-    "name": "Cute Yellow Flower Skirt",
-    "images": ["/assets/cuteyellowskirt1.PNG", "/assets/cuteyellowskirt2.PNG", "/assets/cuteyellowskirt3.PNG"],
+    "name": "Patchwork Print Raw Edge Jeans",
+    "images": ["/assets/cheappants.PNG", "/assets/cheappants2.PNG"],    
     "price": 20.99,
     "salePrice": 3.99,
     "onSale": true,
-    "category": "skirt",
+    "category": "pants",
     "sizes": ["M", "L", "XL"],
-    "description": "Slay all day 💫",
+    "description": "Patch? Work? Only patch, no work please.",
     "reviews": [
         { "author": "Maria", "rating": 1, "comment": "Material is so cheap... I feel betrayed" },
         { "author": "Clara", "rating": 2, "comment": "I hate it! Waste of moneyz. Only good thing is... I dont know, I am just trying to be positive, so I will give it 2 stars" },
@@ -47,17 +47,32 @@
     },
     {
     "id": "4",
-    "name": "Patchwork Print Raw Edge Jeans",
-    "images": ["/assets/cheappants.PNG, cheappants2.PNG"],
-    "price": 120.99,
-    "salePrice": 12.99,
+    "name": "Cartoon Loose Short Sleeves Shirt",
+    "images": ["/assets/garfieldcartoonlooseshortsleeveshirtplussize.PNG"],
+    "price": 20.99,
+    "salePrice": 18.99,
+    "onSale": true,
+    "category": "shirt",
+    "sizes": ["M", "L", "XL"],
+    "description": "If Garfield’s cool, then this shirt makes me too… Right? Right??",
+    "reviews": [
+        { "author": "Julia", "rating": 5, "comment": "Perfect fit and gorgeous! A must have." },
+        { "author": "Garfield", "rating": 5, "comment": "I love this. It is very cool." }
+    ]
+    },
+    {
+    "id": "5",
+    "name": "Colorful Picasso Fashion Dress",
+    "images": ["/assets/model1.PNG"],
+    "price": 89.99,
+    "salePrice": 59.99,
     "onSale": true,
     "category": "dress",
     "sizes": ["M", "L", "XL"],
-    "description": "Patch? Work? Only patch, no work please.",
+    "description": "Shine all night 💫",
     "reviews": [
-        { "author": "Julia", "rating": 5, "comment": "Perfect fit and gorgeous!" },
-        { "author": "Maya", "rating": 4, "comment": "I love the colours :D" }
+        { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
+        { "author": "Maya", "rating": 4, "comment": "I love the sparkle ✨" }
     ]
     }
 

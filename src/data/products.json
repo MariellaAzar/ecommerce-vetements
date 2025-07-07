@@ -40,9 +40,9 @@
     "sizes": ["M", "L", "XL"],
     "description": "Patch? Work? Only patch, no work please.",
     "reviews": [
-        { "author": "Maria", "rating": 1, "comment": "Material is so cheap... I feel betrayed" },
+        { "author": "Trisha", "rating": 1, "comment": "Material is so cheap... I feel betrayed" },
         { "author": "Clara", "rating": 2, "comment": "I hate it! Waste of moneyz. Only good thing is... I dont know, I am just trying to be positive, so I will give it 2 stars" },
-        { "author": "Maria", "rating": 1, "comment": "If I could give it 0 stars, I would." }
+        { "author": "Lara", "rating": 1, "comment": "If I could give it 0 stars, I would." }
     ]
     },
     {

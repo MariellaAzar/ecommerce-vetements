@@ -67,7 +67,8 @@
     "price": 89.99,
     "salePrice": 59.99,
     "onSale": true,
-    "category": "dress",
+    "category": "dresses",
+    "subcategory": "summer",
     "sizes": ["M", "L", "XL"],
     "description": "Shine all night 💫",
     "reviews": [

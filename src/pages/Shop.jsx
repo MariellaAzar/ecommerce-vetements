@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import productsData from '../data/products.json';
 import ProductCard from '../components/ProductCard';
 import FilterSidebar from '../components/FilterSidebar';
 import './Shop.css';
 
 function Shop({ searchQueryGlobal }) {
+  const { category: routeCategory } = useParams();
   const [filters, setFilters] = useState({
     category: '',
     subcategory: '',
@@ -13,31 +15,14 @@ function Shop({ searchQueryGlobal }) {
     search: ''
   });
 
-  const [allCategories, setAllCategories] = useState([]);
-  const [allSubcategories, setAllSubcategories] = useState([]);
-
-  // Sync search from Navbar
+  // Sync avec la Navbar et l'URL
   useEffect(() => {
-    setFilters((prev) => ({ ...prev, search: searchQueryGlobal }));
-  }, [searchQueryGlobal]);
-
-  // Extract unique categories & subcategories from products data dynamically
-  useEffect(() => {
-    const categoriesSet = new Set();
-    const subcategoriesSet = new Set();
-
-    productsData.forEach((product) => {
-      if (product.category) {
-        categoriesSet.add(product.category.toLowerCase());
-      }
-      if (product.subcategory) {
-        subcategoriesSet.add(product.subcategory.toLowerCase());
-      }
-    });
-
-    setAllCategories(Array.from(categoriesSet));
-    setAllSubcategories(Array.from(subcategoriesSet));
-  }, []);
+    setFilters((prev) => ({
+      ...prev,
+      category: routeCategory ? routeCategory.toLowerCase() : '',
+      search: searchQueryGlobal
+    }));
+  }, [routeCategory, searchQueryGlobal]);
 
   const handleFilterChange = (newFilters) => {
     setFilters({ ...filters, ...newFilters });
@@ -49,7 +34,7 @@ function Shop({ searchQueryGlobal }) {
     return (
       (!category || (product.category?.toLowerCase() === category)) &&
       (!subcategory || (product.subcategory?.toLowerCase() === subcategory)) &&
-      (!size || (product.sizes?.includes(size))) &&
+      (!size || (product.sizes?.map(s => s.toLowerCase()).includes(size.toLowerCase()))) &&
       (!sale || product.onSale === true) &&
       (!search ||
         product.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -59,12 +44,7 @@ function Shop({ searchQueryGlobal }) {
 
   return (
     <div className="shop-page">
-      <FilterSidebar
-        filters={filters}
-        onChange={handleFilterChange}
-        categories={allCategories}
-        subcategories={allSubcategories}
-      />
+      <FilterSidebar filters={filters} onChange={handleFilterChange} />
       <div className="product-grid">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (

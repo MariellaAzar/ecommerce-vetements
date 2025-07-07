@@ -11,12 +11,13 @@
   overflow: hidden;
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
   position: relative;
+  cursor: pointer;
 }
 
 .carousel-slide {
   position: relative;
-  cursor: pointer;
   overflow: hidden;
+  outline: none;
 }
 
 .carousel-image {
@@ -25,6 +26,7 @@
   object-fit: cover;
   transition: transform 0.5s ease;
   border-radius: 16px;
+  user-select: none;
 }
 
 .carousel-slide:hover .carousel-image {
@@ -98,39 +100,46 @@
   box-shadow: 0 8px 18px rgba(239, 79, 79, 0.7);
 }
 
-/* Static banners grid */
-.banners {
+/* Categories grid */
+.categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 25px;
 }
 
-.banner {
-  background-color: white;
-  border-left: 8px solid #EF4F4F;
-  padding: 30px 35px;
-  border-radius: 16px;
+.category-card {
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
   cursor: pointer;
+  text-align: center;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 4px 14px rgba(239, 79, 79, 0.15);
+  user-select: none;
+  outline: none;
 }
 
-.banner:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 8px 28px rgba(239, 79, 79, 0.3);
+.category-card:hover,
+.category-card:focus {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgb(0 0 0 / 0.15);
 }
 
-.banner h2 {
-  color: #EF4F4F;
+.category-emoji {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+}
+
+.category-name {
+  font-size: 1.6rem;
+  font-weight: 600;
   margin-bottom: 8px;
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
+  color: #333;
 }
 
-.banner p {
-  font-size: 16px;
-  font-weight: 500;
-  color: #555;
+.category-desc {
+  font-size: 1rem;
+  color: #444;
+  font-style: italic;
 }
 
 /* Carousel arrows */

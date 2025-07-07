@@ -9,7 +9,8 @@ function Favorites() {
   const favoriteProducts = productsData.filter(p => favorites.includes(p.id));
 
   if (favoriteProducts.length === 0) {
-    return <p style={{ padding: 30 }}>You have no favorites yet.</p>;
+    return <p style={{textAlign: 'center',padding: '40px', fontSize: '18px', 
+    color: '#555' }}>You have no favorites yet.</p>;
   }
 
   return (

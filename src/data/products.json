@@ -1,0 +1,50 @@
+[
+    {
+    "id": "1",
+    "name": "Chic Heels",
+    "images": ["/assets/heels1.jpg", "/assets/heels2.jpg", "/assets/heels3.jpg"],
+    "price": 89.99,
+    "salePrice": 59.99,
+    "onSale": true,
+    "category": "shoes",
+    "subcategory": "heels",
+    "sizes": ["36", "37", "38"],
+    "description": "Shine all night 💫",
+    "reviews": [
+        { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
+        { "author": "Maya", "rating": 4, "comment": "I love the sparkle ✨" }
+    ]
+    },
+        {
+    "id": "2",
+    "name": "Cute Yellow Flower Skirt",
+    "images": ["/assets/cuteyellowskirt1.PNG", "/assets/cuteyellowskirt2.PNG", "/assets/cuteyellowskirt3.PNG"],
+    "price": 89.99,
+    "salePrice": 59.99,
+    "onSale": true,
+    "category": "skirt",
+    "sizes": ["36", "37", "38"],
+    "description": "Shine all night 💫",
+    "reviews": [
+        { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
+        { "author": "Maya", "rating": 4, "comment": "I love the sparkle ✨" }
+    ]
+    },
+    {
+    "id": "3",
+    "name": "Colorful Picasso Fashion Dress",
+    "images": ["/assets/model1.PNG"],
+    "price": 89.99,
+    "salePrice": 59.99,
+    "onSale": true,
+    "category": "dress",
+    "sizes": ["M", "L", "XL"],
+    "description": "Shine all night 💫",
+    "reviews": [
+        { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
+        { "author": "Maya", "rating": 4, "comment": "I love the sparkle ✨" }
+    ]
+    }
+
+]
+

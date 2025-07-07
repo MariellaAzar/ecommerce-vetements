@@ -1,0 +1,16 @@
+/* src/pages/Shop.css */
+.shop-page {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  background-color: #fff9f7;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 30px;
+  flex: 1;
+}
+

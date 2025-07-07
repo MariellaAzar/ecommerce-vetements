@@ -1,0 +1,112 @@
+.product-detail {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px;
+  gap: 40px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.image-section,
+.info-section {
+  flex: 1 1 400px;
+}
+
+
+.image-section {
+  position: relative;
+  width: 50%;
+}
+.image-section img {
+  width: 100%;
+  max-width: 320px;    
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.nav-btn.left {
+  left: 10px;
+}
+
+.nav-btn.right {
+  right: 10px;
+}
+
+.info-section {
+  width: 50%;
+}
+
+.info-section h2 {
+  font-family: 'Playfair Display', serif;
+  color: #EF4F4F;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  margin-right: 8px;
+  color: #888;
+}
+
+.sale-price {
+  color: #EF4F4F;
+  font-weight: bold;
+}
+
+.description {
+  margin: 15px 0;
+}
+
+.sizes select {
+  margin-top: 8px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.actions button {
+  background-color: #EF4F4F;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.reviews {
+  margin-top: 30px;
+}
+
+.review {
+  background-color: #fff6f6;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 12px;
+}

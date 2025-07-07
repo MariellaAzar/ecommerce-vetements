@@ -1,0 +1,57 @@
+/* src/pages/Survey.css */
+.survey-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #fff6f6;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.survey-container h2 {
+  text-align: center;
+  color: #EF4F4F;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+select, textarea {
+  margin-top: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+button {
+  background-color: #EF4F4F;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #D43C3C;
+}
+
+.thanks-message {
+  text-align: center;
+  color: #333;
+}

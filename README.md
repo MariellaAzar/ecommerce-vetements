@@ -1,6 +1,6 @@
 # ROUH Studio — React E-commerce Fashion Website
 
-![ROUH Studio Logo](src/assets/logo.png)
+![ROUH Studio Logo](src/assets/images/logo.png)
 
 ---
 

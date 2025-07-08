@@ -1,81 +1,97 @@
 [
-    {
+  {
     "id": "1",
     "name": "Pink Colourful High Heels Boots",
     "images": ["/assets/shoe2.PNG"],
     "price": 49.99,
     "onSale": true,
-    "category": "Shoes",
+    "category": ["shoes", "highheel", "latest"],
     "sizes": ["36", "37", "38"],
+    "color": "pink",
     "description": "Shine all night 💫",
     "reviews": [
-        { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
-        { "author": "Maya", "rating": 4, "comment": "I lovee!" }
+      { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
+      { "author": "Maya", "rating": 4, "comment": "I lovee!" }
     ]
-    },
-        {
+  },
+  {
     "id": "2",
     "name": "Cute Yellow Flower Skirt",
     "images": ["/assets/cuteyellowskirt1.PNG", "/assets/cuteyellowskirt2.PNG", "/assets/cuteyellowskirt3.PNG"],
     "price": 20.99,
     "salePrice": 14.99,
     "onSale": true,
-    "category": "skirt",
+    "category": ["skirt", "summer"],
     "sizes": ["M", "L", "XL"],
+    "color": "yellow",
     "description": "Slay all day 💫",
     "reviews": [
-        { "author": "Sarah", "rating": 5, "comment": "Gorgeous!" },
-        { "author": "Lea", "rating": 4, "comment": "I love it, but order a size up!" }
+      { "author": "Sarah", "rating": 5, "comment": "Gorgeous!" },
+      { "author": "Lea", "rating": 4, "comment": "I love it, but order a size up!" }
     ]
-    },
-            {
+  },
+  {
     "id": "3",
     "name": "Patchwork Print Raw Edge Jeans",
     "images": ["/assets/cheappants.PNG", "/assets/cheappants2.PNG"],    
     "price": 20.99,
     "salePrice": 3.99,
     "onSale": true,
-    "category": "pants",
-    "subcategory": "jeans",
+    "category": ["pants", "jeans"],
     "sizes": ["M", "L", "XL"],
+    "color": "black",
     "description": "Patch? Work? Only patch, no work please.",
     "reviews": [
-        { "author": "Trisha", "rating": 1, "comment": "Material is so cheap... I feel betrayed" },
-        { "author": "Clara", "rating": 2, "comment": "I hate it! Waste of moneyz. Only good thing is... I dont know, I am just trying to be positive, so I will give it 2 stars. Even though I spent my last 4 dollars on this piece..." },
-        { "author": "Lara", "rating": 1, "comment": "If I could give it 0 stars, I would." }
+      { "author": "Trisha", "rating": 1, "comment": "Material is so cheap... I feel betrayed" },
+      { "author": "Clara", "rating": 2, "comment": "I hate it! Waste of moneyz. Only good thing is... I dont know, I am just trying to be positive, so I will give it 2 stars. Even though I spent my last 4 dollars on this piece..." },
+      { "author": "Lara", "rating": 1, "comment": "If I could give it 0 stars, I would." }
     ]
-    },
-    {
+  },
+  {
     "id": "4",
     "name": "Cartoon Loose Short Sleeves Shirt",
     "images": ["/assets/garfieldcartoonlooseshortsleeveshirtplussize.PNG"],
     "price": 20.99,
     "salePrice": 18.99,
     "onSale": true,
-    "category": "shirt",
-    "sizes": ["M", "L", "XL"],
+    "category": ["plus", "shirt", "latest"],
+    "sizes": ["M", "L", "XL", "plus"],
+    "color": "orange",
     "description": "If Garfield’s cool, then this shirt makes me too… Right? Right??",
     "reviews": [
-        { "author": "Julia", "rating": 5, "comment": "Perfect fit and gorgeous! A must have." },
-        { "author": "Garfield", "rating": 5, "comment": "I love this. It is very cool." }
+      { "author": "Julia", "rating": 5, "comment": "Perfect fit and gorgeous! A must have." },
+      { "author": "Garfield", "rating": 5, "comment": "I love this. It is very cool." }
     ]
-    },
-    {
+  },
+  {
     "id": "5",
     "name": "Colorful Picasso Fashion Dress",
     "images": ["/assets/model1.PNG"],
     "price": 89.99,
     "salePrice": 59.99,
     "onSale": true,
-    "category": "dresses",
-    "subcategory": "summer",
+    "category": ["dresses", "summer"],
+    "subcategory": ["dresses", "summer"],
     "sizes": ["M", "L", "XL"],
+    "color": "multicolor",
     "description": "Shine all night 💫",
     "reviews": [
-        { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
-        { "author": "Maya", "rating": 4, "comment": "I love the sparkle ✨" }
+      { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
+      { "author": "Maya", "rating": 4, "comment": "I love the sparkle ✨" }
     ]
-    }
-
+  },
+  {
+    "id": "6",
+    "name": "Purple Glasses",
+    "images": ["/assets/purpleglasses.JPG"],
+    "price": 12.99,
+    "category": ["accessories", "summer", "glasses"],
+    "sizes": ["M", "L", "XL"],
+    "color": "purple",
+    "description": "Shine all night 💫",
+    "reviews": [
+      { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
+      { "author": "Maya", "rating": 4, "comment": "I love the sparkle ✨" }
+    ]
+  }
 ]
-

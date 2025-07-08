@@ -1,57 +1,92 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import productsData from '../data/products.json';
 import ProductCard from '../components/ProductCard';
 import FilterSidebar from '../components/FilterSidebar';
 import './Shop.css';
 
-function Shop({ searchQueryGlobal }) {
-  const { category: routeCategory } = useParams();
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+function Shop() {
+  const query = useQuery();
+  const navigate = useNavigate();
+
+  // Parse URL params or default to empty strings/false
   const [filters, setFilters] = useState({
-    category: '',
-    subcategory: '',
-    size: '',
-    sale: false,
-    search: ''
+    search: query.get('search') || '',
+    category: query.get('category') || '',
+    subcategory: query.get('subcategory') || '',
+    size: query.get('size') || '',
+    sale: query.get('sale') === 'true', // checkbox boolean
+    color: query.get('color') || '',
   });
 
-  // Sync avec la Navbar et l'URL
+  // Sync filters state to URL when filters change
   useEffect(() => {
-    setFilters((prev) => ({
-      ...prev,
-      category: routeCategory ? routeCategory.toLowerCase() : '',
-      search: searchQueryGlobal
-    }));
-  }, [routeCategory, searchQueryGlobal]);
+    const params = new URLSearchParams();
 
-  const handleFilterChange = (newFilters) => {
-    setFilters({ ...filters, ...newFilters });
+    Object.entries(filters).forEach(([key, val]) => {
+      if (val) {
+        params.set(key, val);
+      }
+    });
+
+    navigate(`/shop?${params.toString()}`, { replace: true });
+  }, [filters, navigate]);
+
+  // matches helper as before
+  const matches = (field, value) => {
+    if (!value) return true;
+    if (!field) return false;
+    if (Array.isArray(field)) {
+      return field.some(f => String(f).toLowerCase() === value.toLowerCase());
+    }
+    return String(field).toLowerCase() === value.toLowerCase();
   };
 
-  const filteredProducts = productsData.filter((product) => {
-    const { category, subcategory, size, sale, search } = filters;
+  // Filtering products same as before...
+  const filteredProducts = productsData.filter(product => {
+    const searchLower = filters.search.toLowerCase();
+
+    const searchMatch =
+      product.name.toLowerCase().includes(searchLower) ||
+      product.description.toLowerCase().includes(searchLower);
+
+    const categoryMatch = matches(product.category, filters.category);
+    const subcategoryMatch = matches(product.subcategory, filters.subcategory);
+    const sizeMatch =
+      !filters.size ||
+      (product.sizes && product.sizes.some(s => s.toLowerCase() === filters.size.toLowerCase()));
+    const saleMatch = !filters.sale || product.onSale;
+    const colorMatch =
+      !filters.color || (product.color && product.color.toLowerCase() === filters.color.toLowerCase());
 
     return (
-      (!category || (product.category?.toLowerCase() === category)) &&
-      (!subcategory || (product.subcategory?.toLowerCase() === subcategory)) &&
-      (!size || (product.sizes?.map(s => s.toLowerCase()).includes(size.toLowerCase()))) &&
-      (!sale || product.onSale === true) &&
-      (!search ||
-        product.name.toLowerCase().includes(search.toLowerCase()) ||
-        product.description?.toLowerCase().includes(search.toLowerCase()))
+      searchMatch &&
+      categoryMatch &&
+      subcategoryMatch &&
+      sizeMatch &&
+      saleMatch &&
+      colorMatch
     );
   });
 
+  const handleFilterChange = change => {
+    setFilters(prev => ({ ...prev, ...change }));
+  };
+
   return (
-    <div className="shop-page">
+    <div className="shop-page" style={{ display: 'flex', gap: '20px', padding: '20px' }}>
       <FilterSidebar filters={filters} onChange={handleFilterChange} />
-      <div className="product-grid">
+      <div className="product-list" style={{ flex: 1, display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
         {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))
+          filteredProducts.map(product => <ProductCard key={product.id} product={product} />)
         ) : (
-          <p>No products match your filters 😢</p>
+          <p style={{ padding: 30, textAlign: 'center', fontSize: 18, color: '#555' }}>
+            No products found matching your filters.
+          </p>
         )}
       </div>
     </div>

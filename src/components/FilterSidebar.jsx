@@ -10,14 +10,14 @@ function FilterSidebar({ filters, onChange }) {
       <input
         type="text"
         value={filters.search}
-        onChange={(e) => onChange({ search: e.target.value })}
+        onChange={e => onChange({ search: e.target.value })}
         placeholder="Search by name or desc"
       />
 
       <label>Category</label>
       <select
         value={filters.category}
-        onChange={(e) => onChange({ category: e.target.value.toLowerCase() })}
+        onChange={e => onChange({ category: e.target.value })}
       >
         <option value="">All</option>
         <option value="dresses">Dresses</option>
@@ -28,12 +28,14 @@ function FilterSidebar({ filters, onChange }) {
         <option value="skirt">Skirt</option>
         <option value="pants">Pants</option>
         <option value="shirt">Shirt</option>
+        <option value="summer">Summer</option>
+        <option value="latest">Latest</option>
       </select>
 
       <label>Subcategory</label>
       <select
         value={filters.subcategory}
-        onChange={(e) => onChange({ subcategory: e.target.value.toLowerCase() })}
+        onChange={e => onChange({ subcategory: e.target.value })}
       >
         <option value="">All</option>
         <option value="summer">Summer</option>
@@ -41,12 +43,13 @@ function FilterSidebar({ filters, onChange }) {
         <option value="sneakers">Sneakers</option>
         <option value="highheel">High Heel</option>
         <option value="blazer">Blazer</option>
+        <option value="glasses">Glasses</option>
       </select>
 
       <label>Size</label>
       <select
         value={filters.size}
-        onChange={(e) => onChange({ size: e.target.value.toLowerCase() })}
+        onChange={e => onChange({ size: e.target.value })}
       >
         <option value="">All</option>
         <option value="xs">XS</option>
@@ -57,11 +60,26 @@ function FilterSidebar({ filters, onChange }) {
         <option value="plus">Plus</option>
       </select>
 
+      <label>Color</label>
+      <select
+        value={filters.color}
+        onChange={e => onChange({ color: e.target.value })}
+      >
+        <option value="">All</option>
+        <option value="pink">Pink</option>
+        <option value="yellow">Yellow</option>
+        <option value="black">Black</option>
+        <option value="white">White</option>
+        <option value="purple">Purple</option>
+        <option value="orange">Orange</option>
+        <option value="multicolor">Multicolor</option>
+      </select>
+
       <label>
         <input
           type="checkbox"
           checked={filters.sale}
-          onChange={(e) => onChange({ sale: e.target.checked })}
+          onChange={e => onChange({ sale: e.target.checked })}
         />
         On Sale
       </label>

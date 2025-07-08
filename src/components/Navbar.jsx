@@ -9,7 +9,7 @@ function Navbar({ searchQuery, setSearchQuery }) {
 
   const handleSearchKeyDown = (e) => {
     if (e.key === 'Enter') {
-      navigate('/shop');
+      navigate(`/shop?search=${encodeURIComponent(searchQuery)}`);
     }
   };
 

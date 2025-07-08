@@ -85,12 +85,52 @@
     "images": ["/assets/purpleglasses.JPG"],
     "price": 12.99,
     "category": ["accessories", "summer", "glasses"],
+    "subcategory": ["glasses", "summer"],
+
     "sizes": ["M", "L", "XL"],
     "color": "purple",
     "description": "Shine all night 💫",
     "reviews": [
       { "author": "Sarah", "rating": 5, "comment": "Perfect fit and gorgeous!" },
       { "author": "Maya", "rating": 4, "comment": "I love the sparkle ✨" }
+    ]
+  },
+      {
+    "id": "7",
+    "name": "Square Pink Fashionable Sunglasses",
+    "images": ["/assets/squarepinkfashionablesunglasses.png"],
+    "price": 12.99,
+    "category": ["glasses", "accessories", "summer"],
+    "subcategory": ["glasses", "summer"],
+
+    "color": "pink",
+    "description": "Turn heads with these bold Square Pink Fashionable Sunglasses.",
+    "reviews": [
+      { "author": "Trisha", "rating": 3, "comment": "Not bad, but could be better." }
+    ]
+  },
+      {
+    "id": "8",
+    "name": "Sleeveless Floral Printed Square-Neck Midi Dress - Floral White",
+    "images": ["/assets/sleevelessfloralprintedsquare_neckmididressfloralwhite.PNG", "sleevelessfloralprintedsquare_neckmididressfloralwhite1.PNG"],
+    "price": 42.99,
+    "category": ["summer", "dresses", "plus"],
+    "color": "white",
+    "description": "Fresh, floral, and effortlessly chic. This sleeveless midi dress features a square neckline and a delicate white floral print—perfect for sunny days, picnics, or casual outings.",
+    "reviews": [
+      { "author": "Trisha", "rating": 4, "comment": "Good quality, love it." }
+    ]
+  },
+        {
+    "id": "9",
+    "name": "Baggy Wide Leg High Waist Bugs Bunny Jeans",
+    "images": ["/assets/BaggyBugsBunnyJeansWideLegHighWaist.PNG"],
+    "price": 36.99,
+    "category": ["jeans", "pants"],
+    "color": "white",
+    "description": "Fresh, floral, and effortlessly chic. This sleeveless midi dress features a square neckline and a delicate white floral print—perfect for sunny days, picnics, or casual outings.",
+    "reviews": [
+      { "author": "Trisha", "rating": 4, "comment": "Good quality, love it." }
     ]
   }
 ]

@@ -1,0 +1,49 @@
+.footer {
+  background-color: #EF4F4F;
+  color: white;
+  padding: 30px 20px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.footer-about h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-about p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.footer-socials a {
+  color: white;
+  margin: 0 10px;
+  font-size: 22px;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #FFC107; /* gold-ish highlight on hover */
+}
+
+.footer-info p {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.footer-info a {
+  color: white;
+  text-decoration: underline;
+  margin: 0 6px;
+}
+
+.footer-info a:hover {
+  color: #FFC107;
+}

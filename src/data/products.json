@@ -4,7 +4,6 @@
     "name": "Pink Colourful High Heels Boots",
     "images": ["/assets/shoe2.PNG"],
     "price": 49.99,
-    "onSale": true,
     "category": ["shoes", "highheel", "latest"],
     "sizes": ["36", "37", "38"],
     "color": "pink",

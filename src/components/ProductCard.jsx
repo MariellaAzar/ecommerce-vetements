@@ -23,7 +23,10 @@ function ProductCard({ product }) {
   };
 
   return (
-    <div className="product-card" onClick={() => navigate(`/product/${product.id}`)}>
+    <div
+      className={`product-card ${product.onSale ? 'on-sale' : ''}`}
+      onClick={() => navigate(`/product/${product.id}`)}
+    >
       <img
         src={product.images?.[0]}
         alt={product.name}

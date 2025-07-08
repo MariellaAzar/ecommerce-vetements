@@ -1,22 +1,53 @@
 .product-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center; /* centers image + text horizontally */
+  align-items: center;
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 20px;
   width: 240px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   background-color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .product-card:hover {
   transform: translateY(-5px);
 }
 
+.product-card.on-sale {
+  border: 2px solid #EF4F4F;
+  background-color: #fff4f4;
+  box-shadow: 0 4px 12px rgba(239, 79, 79, 0.4);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.product-card.on-sale:hover {
+  box-shadow: 0 8px 20px rgba(239, 79, 79, 0.7);
+  transform: translateY(-7px);
+}
+
+.product-card.on-sale::before {
+  content: "SALE";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #EF4F4F;
+  color: white;
+  padding: 4px 8px;
+  font-weight: bold;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: 'Playfair Display', serif;
+  z-index: 10;
+}
+
 .product-image {
   width: 180px;
-  height: 180px;
+  height: auto; /* changed from fixed height to auto */
+  max-height: 180px; /* limit max height */
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 10px;
@@ -70,6 +101,11 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.card-actions button:hover {
+  background-color: #d94343;
 }
 
 .card-actions .fav-btn {
@@ -77,4 +113,3 @@
   color: #EF4F4F;
   padding: 0;
 }
-

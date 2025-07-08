@@ -10,7 +10,6 @@ import bannerLatest from '../assets/images/banner-latest.jpg';
 import bannerSales from '../assets/images/banner-sales.jpg';
 import bannerSummer from '../assets/images/banner-summer.jpg';
 
-// Flèches personnalisées du carousel
 function NextArrow(props) {
   const { onClick } = props;
   return <div className="custom-arrow next" onClick={onClick}>›</div>;
@@ -22,10 +21,17 @@ function PrevArrow(props) {
 }
 
 const categories = [
-  { name: 'Dresses', emoji: '👗', desc: 'Chic • Summer • Elegant', link: '/shop/dresses', color: '#FAD4D4' },
-  { name: 'Shoes', emoji: '👠', desc: 'Original • Bold • Iconic', link: '/shop/shoes', color: '#D4F1F4' },
-  { name: 'Plus Size', emoji: '🫶', desc: 'Slay at any size', link: '/shop/plus', color: '#FFE5B4' },
-  { name: 'Accessories', emoji: '🎒', desc: 'Trendy • Unique', link: '/shop/accessories', color: '#E0BBE4' }
+  { name: 'Dresses', emoji: '👗', desc: 'Chic • Summer • Elegant', query: { category: 'dresses' }, color: '#FAD4D4' },
+  { name: 'Shoes', emoji: '👠', desc: 'Original • Bold • Iconic', query: { category: 'shoes' }, color: '#D4F1F4' },
+  { name: 'Plus Size', emoji: '🫶', desc: 'Slay at any size', query: { category: 'plus' }, color: '#FFE5B4' },
+  { name: 'Accessories', emoji: '🎒', desc: 'Trendy • Unique', query: { category: 'accessories' }, color: '#E0BBE4' }
+];
+
+const banners = [
+  { img: bannerAccessories, query: { category: 'accessories' }, caption: "Accessories 🎒" },
+  { img: bannerLatest, query: { latest: 'true' }, caption: "Latest Arrivals ✨" }, // assume you handle "latest" filter
+  { img: bannerSummer, query: { subcategory: 'summer' }, caption: "Summer Vibes ☀️" },
+  { img: bannerSales, query: { sale: 'true' }, caption: "Hot Sales 🔥" }
 ];
 
 function Home() {
@@ -44,12 +50,11 @@ function Home() {
     prevArrow: <PrevArrow />
   };
 
-  const banners = [
-    { img: bannerAccessories, link: "/shop/accessories", caption: "Accessories 🎒" },
-    { img: bannerLatest, link: "/shop/latest", caption: "Latest Arrivals ✨" },
-    { img: bannerSummer, link: "/shop/summer", caption: "Summer Vibes ☀️" },
-    { img: bannerSales, link: "/shop/sale", caption: "Hot Sales 🔥" }
-  ];
+  // Helper to build URL with query params string
+  const buildShopUrl = (queryObj) => {
+    const params = new URLSearchParams(queryObj).toString();
+    return `/shop?${params}`;
+  };
 
   return (
     <div className="home">
@@ -60,10 +65,10 @@ function Home() {
             <div 
               key={index} 
               className="carousel-slide" 
-              onClick={() => navigate(banner.link.toLowerCase())}
+              onClick={() => navigate(buildShopUrl(banner.query))}
               role="button"
               tabIndex={0}
-              onKeyPress={e => { if(e.key === 'Enter') navigate(banner.link.toLowerCase()); }}
+              onKeyPress={e => { if(e.key === 'Enter') navigate(buildShopUrl(banner.query)); }}
             >
               <img src={banner.img} alt={`banner-${index}`} className="carousel-image" />
               <div className="carousel-caption">{banner.caption}</div>
@@ -76,20 +81,20 @@ function Home() {
       <div className="hero-banner">
         <h1 className="hero-title">Wear your soul.</h1>
         <p className="hero-subtitle">Fashion made to express YOU 💖</p>
-        <button className="hero-button" onClick={() => navigate('/shop/sale')}>Shop the Sale</button>
+        <button className="hero-button" onClick={() => navigate(buildShopUrl({ sale: 'true' }))}>Shop the Sale</button>
       </div>
 
       {/* CATEGORIES GRID */}
       <div className="categories-grid">
-        {categories.map(({ name, emoji, desc, link, color }) => (
+        {categories.map(({ name, emoji, desc, query, color }) => (
           <div
             key={name}
             className="category-card"
             style={{ backgroundColor: color }}
-            onClick={() => navigate(link.toLowerCase())}
+            onClick={() => navigate(buildShopUrl(query))}
             role="button"
             tabIndex={0}
-            onKeyPress={e => { if(e.key === 'Enter') navigate(link.toLowerCase()); }}
+            onKeyPress={e => { if(e.key === 'Enter') navigate(buildShopUrl(query)); }}
           >
             <div className="category-emoji">{emoji}</div>
             <h3 className="category-name">{name}</h3>
